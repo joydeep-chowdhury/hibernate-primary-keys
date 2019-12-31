@@ -12,22 +12,23 @@ public class HibernateTest {
 
 	public static void main(String[] args) {
 		UserDetails uds=new UserDetails();
-		uds.setUserId(1);
 		uds.setUserName("Joydeep Chowdhury");
 		uds.setAddress("CL266 Sector 2");
 		uds.setJoinedDate(new Date());
 		uds.setDescription("Description of the user goes here");
+		
+		UserDetails uds2=new UserDetails();
+		uds2.setUserName("Pramit Karmakar");
+		uds2.setAddress("CL266 Sector 2");
+		uds2.setJoinedDate(new Date());
+		uds2.setDescription("Description of the user goes here");
         SessionFactory sf=new Configuration().configure().buildSessionFactory();
         Session session=sf.openSession();
         session.beginTransaction();
         session.save(uds);
+        session.save(uds2);
         session.getTransaction().commit();
         session.close();
-        uds=null;
-         session=sf.openSession();
-        session.beginTransaction();
-        uds=session.get(UserDetails.class,1);
-        System.out.println(uds);
 	}
 
 }

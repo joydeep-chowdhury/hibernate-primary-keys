@@ -3,6 +3,7 @@ package com.joydeep.hibernate.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
@@ -14,6 +15,7 @@ import javax.persistence.Transient;
 @Table(name = "USER_DETAILS")
 public class UserDetails {
 	@Id
+	@GeneratedValue
 	private int userId;
 	private String userName;
 	private Date joinedDate;
